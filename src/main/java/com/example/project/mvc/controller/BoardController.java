@@ -6,12 +6,14 @@ import com.example.project.mvc.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/board")
 public class BoardController {
 
     @Autowired
@@ -31,8 +33,8 @@ public class BoardController {
 
     //저장
     @GetMapping("/save")
-    public void save(Board board) {
-        boardService.save(board);
+    public int save(Board board) {
+        return boardService.save(board);
     }
 
     //삭제
